@@ -1,0 +1,11 @@
+﻿@model IEnumerable<CategoryModel>
+
+@foreach (var item in Model)
+{
+    <li>
+
+        <a asp-action="Index" asp-controller="Category" asp-route-Slug="@item.Slug">@item.Name</a>
+
+        <span class="category-list__text u-s-m-l-6">(0)</span>
+    </li>
+}

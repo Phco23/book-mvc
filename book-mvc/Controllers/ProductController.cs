@@ -11,9 +11,12 @@ namespace book_mvc.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int Id)
         {
-            return View();
+            if (Id == null) return RedirectToAction("Index");
+
+            var productsById = _context.Products.Where(p => p.Id == Id).FirstOrDefault();
+            return View(productsById);
         }
     }
 }

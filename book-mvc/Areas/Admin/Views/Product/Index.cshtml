@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ProductModel>
+
+<div class="col-lg-12 col-md-12">
+    <form class="dash__address-make">
+        <div>
+
+            <a asp-action="Create" class="btn btn--e-brand-b-2" type="submit">Create new product</a>
+        </div><br />
+        <div class="dash__box dash__box--shadow dash__box--bg-white dash__box--radius u-s-m-b-30">
+            <h2 class="dash__h2 u-s-p-xy-20">List Product</h2>
+            <div class="dash__table-2-wrap gl-scroll">
+                <table class="dash__table-2">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Slug</th>
+                            <th>Category</th>   
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model){
+                        <tr>
+                            <th>@item.Id</th>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.Price</td>
+                                <td><img src="~/media/products/@item.Image" width="60" height="60" /></td>
+                                <td>@item.Slug</td>
+                                <td>@item.Category.Name</td>
+                                <td>
+                                    <a asp-action="Edit" asp-controller="Product" asp-route-Id="@item.Id">Edit</a>
+                                    <a asp-action="Delete" asp-controller="Product" asp-route-Id="@item.Id">Delete</a>
+                                </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

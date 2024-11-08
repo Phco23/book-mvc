@@ -12,5 +12,5 @@ namespace book_mvc.Models
 		public string Email { get; set; }
 		[DataType(DataType.Password), Required(ErrorMessage = "Input password")]
 		public string Password { get; set; }
-	}
+    }
 }

@@ -44,6 +44,8 @@ namespace book_mvc
 
 			var app = builder.Build();  
 
+            app.UseSession();
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -64,10 +66,7 @@ namespace book_mvc
                 name: "Areas",
                 pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}");
 
-            app.MapControllerRoute(
-                name: "category",
-                pattern: "/category/{Slug?}",
-                defaults: new { controller = "Category", action = "Index" });
+            
 
 
             app.MapControllerRoute(

@@ -73,6 +73,7 @@
                                         <label class="gl-label" for="reg-fname">Username *</label>
 
                                         <input asp-for="Username" class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="First Name">
+                                        <span asp-validation-for="Username" class="text-danger" />
                                     </div>
                 
                                     
@@ -81,13 +82,16 @@
                                         <label class="gl-label" for="reg-email">E-MAIL *</label>
 
                                         <input asp-for="Email" class="input-text input-text--primary-style" type="text" id="reg-email" placeholder="Enter E-mail">
+                                        <span asp-validation-for="Email" class="text-danger" />
                                     </div>
                                     <div class="u-s-m-b-30">
 
-                                        <label class="gl-label" for="reg-password">PASSWORD *</label>
+                                        <label class="gl-label" >PASSWORD *</label>
 
                                         <input asp-for="Password" class="input-text input-text--primary-style" type="password" id="reg-password" placeholder="Enter Password">
+                                        <span asp-validation-for="Password" class="text-danger" />
                                     </div>
+                                    
                                     <div class="u-s-m-b-15">
 
                                         <button class="btn btn--e-transparent-brand-b-2" type="submit">CREATE</button>

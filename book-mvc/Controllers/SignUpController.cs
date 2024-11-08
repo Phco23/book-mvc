@@ -14,7 +14,7 @@ namespace book_mvc.Controllers
 			_userManage = userManage;
 			_signInManager = signInManager;
 		}
-		public IActionResult Index()
+		public IActionResult Create()
         {
             return View();
         }

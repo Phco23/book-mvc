@@ -12,20 +12,7 @@
                 <div class="col-lg-9 col-md-12">
                     <div class="shop-p">
                         <div class="shop-p__toolbar u-s-m-b-30">
-                            <div class="shop-p__meta-wrap u-s-m-b-60">
 
-                                <span class="shop-p__meta-text-1">FOUND 18 RESULTS</span>
-                                <div class="shop-p__meta-text-2">
-
-                                    <span>Related Searches:</span>
-
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">men's clothing</a>
-
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">mobiles & tablets</a>
-
-                                    <a class="gl-tag btn--e-brand-shadow" href="#">books & audible</a>
-                                </div>
-                            </div>
                             <div class="shop-p__tool-style">
                                 <div class="tool-style__group u-s-m-b-8">
 
@@ -65,17 +52,18 @@
                                         <div class="product-m">
                                             <div class="product-m__thumb">
 
-                                                <a class="aspect aspect--bg-grey aspect--square u-d-block" href="product-detail.html">
+                                                <a class="aspect aspect--bg-grey aspect--square u-d-block" asp-controller="Product" asp-action="Index" asp-route-Id="@item.Id">
 
-                                                    <img class="aspect__img" src="images/product/electronic/product7.jpg" alt="">
+                                                    <img class="aspect__img" src="~/media/products/@item.Image" alt="">
                                                 </a>
+
                                                 <div class="product-m__quick-look">
 
                                                     <a class="fas fa-search" data-modal="modal" data-modal-id="#quick-look" data-tooltip="tooltip" data-placement="top" title="Quick Look"></a>
                                                 </div>
                                                 <div class="product-m__add-cart">
 
-                                                    <a class="btn--e-brand" data-modal="modal" data-modal-id="#add-to-cart">Add to Cart</a>
+                                                    <a class="btn--e-brand" data-modal="modal" asp-action="Add" asp-controller="Cart" asp-route-Id="@item.Id" data-modal-id="#add-to-cart">Add to Cart</a>
                                                 </div>
                                             </div>
                                             <div class="product-m__content">
@@ -85,7 +73,7 @@
                                                 </div>
                                                 <div class="product-m__name">
 
-                                                    <a href="product-detail.html">Nikon DSLR Camera 4k</a>
+                                                    <a href="product-detail.html">@item.Name</a>
                                                 </div>
                                                 <div class="product-m__rating gl-rating-style">
                                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i><i class="far fa-star"></i>
@@ -110,6 +98,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 }
                             </div>
                         </div>

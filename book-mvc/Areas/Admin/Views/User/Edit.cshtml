@@ -1,0 +1,71 @@
+﻿@model AppUserModel
+
+
+<div class="u-s-p-b-60">
+    <!--====== Section Intro ======-->
+    <div class="section__intro u-s-m-b-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section__text-wrap">
+                        <h1 class="section__heading u-c-secondary">CREATE PRODUCT</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section Intro ======-->
+    <!--====== Section Content ======-->
+    <div class="section__content">
+        <div class="container">
+            <div class="row row--center">
+                <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                    <div class="l-f-o">
+                        <div class="l-f-o__pad-box">
+                            <h1 class="gl-h1">PRODUCT INFORMATION</h1>
+                            <form class="l-f-o__form" asp-action="Edit" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="u-s-m-b-30">
+                                    <label class="gl-label" for="reg-fname">Name *</label>
+                                    <input asp-for="UserName" class="input-text input-text--primary-style" type="text" id="reg-fname" placeholder="Enter Name" data-val="true" data-val-required="Name is required">
+                                    <span asp-validation-for="UserName" class="text-danger" />
+                                </div>
+
+                                <div class="u-s-m-b-30">
+                                    <label class="gl-label" for="reg-price">Email *</label>
+                                    <input asp-for="Email" class="input-text input-text--primary-style" type="text" id="reg-price" placeholder="Enter Email" data-val="true" data-val-required="Email is required">
+                                    <span asp-validation-for="Email" class="text-danger" />
+                                </div>
+
+                                <div class="u-s-m-b-30">
+                                    <label class="gl-label" for="reg-description">Password *</label>
+                                    <input asp-for="PasswordHash" class="input-text input-text--primary-style" type="text" id="reg-description" placeholder="Enter Password" data-val="true" data-val-required="Password is required">
+                                    <span asp-validation-for="PasswordHash" class="text-danger" />
+                                </div>
+
+                                <div class="u-s-m-b-30">
+                                    <label class="gl-label" for="reg-category">Roles *</label>
+                                    <select asp-for="RoleId" asp-items="ViewBag.Roles" class="input-text input-text--primary-style" data-val="true" data-val-required="Role is required">
+                                        <option value="">--Choose a role--</option>
+                                    </select>
+                                    <span asp-validation-for="RoleId" class="text-danger" />
+                                </div>
+
+
+
+                                <div class="u-s-m-b-15">
+                                    <button class="btn btn--e-transparent-brand-b-2" type="submit">EDIT</button>
+                                </div>
+
+                                <a class="gl-link" href="#">Return to Store</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section Content ======-->
+</div>
+
+

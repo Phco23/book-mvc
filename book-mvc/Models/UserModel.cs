@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace book_mvc.Models
 {
@@ -12,5 +13,9 @@ namespace book_mvc.Models
 		public string Email { get; set; }
 		[DataType(DataType.Password), Required(ErrorMessage = "Input password")]
 		public string Password { get; set; }
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        public string ConfirmPassword { get; set; }
     }
 }

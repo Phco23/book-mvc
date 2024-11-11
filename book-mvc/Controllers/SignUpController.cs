@@ -32,7 +32,9 @@ namespace book_mvc.Controllers
 				IdentityResult result = await _userManage.CreateAsync(newUser, user.Password);
 				if (result.Succeeded)
 				{
-					return Redirect("/signin");
+                    await _userManage.AddToRoleAsync(newUser, "User");
+
+                    return Redirect("/signin");
 				}
 				foreach (IdentityError error in result.Errors)
 				{

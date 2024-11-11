@@ -44,5 +44,78 @@ namespace book_mvc.Controllers
             TempData["success"] = "Add to cart success";
             return Redirect(Request.Headers["Referer"].ToString());
         }
+
+        public async Task<IActionResult> Decrease(int Id)
+        {
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+            CartItemModel cartItem = cart.FirstOrDefault(c => c.ProductId == Id);
+
+            if (cartItem != null)
+            {
+                if (cartItem.Quantity > 1)
+                {
+                    --cartItem.Quantity;
+                }
+                else
+                {
+                    cart.Remove(cartItem);
+                }
+            }
+
+            if (cart.Count == 0)
+            {
+                HttpContext?.Session?.Remove("Cart");
+            }
+            else
+            {
+                HttpContext?.Session?.SetJson("Cart", cart);
+            }
+
+            TempData["success"] = "Decrease to cart success";
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Increase(int Id)
+        {
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+            CartItemModel cartItem = cart.FirstOrDefault(c => c.ProductId == Id);
+
+            if (cartItem != null)
+            {
+                ++cartItem.Quantity;
+            }
+
+            if (cart.Count == 0)
+            {
+                HttpContext?.Session?.Remove("Cart");
+            }
+            else
+            {
+                HttpContext?.Session?.SetJson("Cart", cart);
+            }
+
+            TempData["success"] = "Increase to cart success";
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Remove(int Id)
+        {
+            List<CartItemModel> cart = HttpContext.Session.GetJson<List<CartItemModel>>("Cart") ?? new List<CartItemModel>();
+
+            cart.RemoveAll(p => p.ProductId == Id);
+
+            if (cart.Count == 0)
+            {
+                HttpContext?.Session?.Remove("Cart");
+            }
+            else
+            {
+                HttpContext?.Session?.SetJson("Cart", cart);
+            }
+
+            TempData["success"] = "Remove to cart success";
+            return RedirectToAction("Index");
+        }
+
     }
 }

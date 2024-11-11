@@ -95,11 +95,11 @@
                                                         <!--====== Input Counter ======-->
                                                         <div class="input-counter">
 
-                                                            <a asp-action="Decrease" asp-controller="Cart" class="input-counter__minus fas fa-minus"></a>
+                                                            <a asp-action="Decrease" asp-controller="Cart" asp-route-id="@item.ProductId" class="input-counter__minus fas fa-minus"></a>
 
-                                                            <input class="input-counter__text input-counter--text-primary-style" type="text" value="1" data-min="1" data-max="1000">
+                                                            <input class="input-counter__text input-counter--text-primary-style" type="text" name="quantity" value="@item.Quantity" autocomplete="off" size="2">
 
-                                                            <a asp-action="Decrease" asp-controller="Cart" class="input-counter__plus fas fa-plus"></a>
+                                                            <a asp-action="Increase" asp-controller="Cart" asp-route-id="@item.ProductId" class="input-counter__plus fas fa-plus"></a>
                                                         </div>
                                                         <!--====== End - Input Counter ======-->
                                                     </div>
@@ -107,7 +107,7 @@
                                                 <td>
                                                     <div class="table-p__del-wrap">
 
-                                                        <a class="far fa-trash-alt table-p__delete-link" asp-controller="Cart" asp-action="Remove"></a>
+                                                        <a class="far fa-trash-alt table-p__delete-link" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId"></a>
                                                     </div>
                                                 </td>
                                             </tr>
